@@ -1,0 +1,14 @@
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: restricted-psp
+spec:
+  privileged: false
+  allowedHostPaths:
+    - pathPrefix: "/var/run/docker.sock"
+  hostIPC: false
+  hostNetwork: false
+  hostPID: false
+  hostPorts:
+    - min: 433
+      max: 433
